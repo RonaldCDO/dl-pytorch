@@ -9,7 +9,6 @@ class Preprocessor:
 
     def regression(self, samples: int, features: int):
         self.X: np.ndarray
-        self.y: np.ndarray
         self.X, self.y = datasets.make_regression(n_samples=samples, n_features=features, noise=20, random_state=1)
         return self.X, self.y
 
@@ -50,10 +49,6 @@ class LinearRegressionModel(Preprocessor):
             optimizer.zero_grad()
             if (epoch+1) % 10 == 0:
                 print(f'epoch: {epoch*1}, loss = {loss.item():.4f}')
-
-
-
-
 
 def main():
     lrm = LinearRegressionModel(0.01)
